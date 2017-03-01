@@ -10,6 +10,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.EtchedBorder;
@@ -20,7 +22,7 @@ import javax.swing.border.EtchedBorder;
  */
 public class LoginUI extends ParentFrame{
     private LoginCntl parentLoginCntl;
-    private JLabel usernameLabel, passwordLabel;
+    private JLabel usernameLabel, passwordLabel, incorrect;
     private JTextField username;
     private JPasswordField password;
     private JButton login, signup;
@@ -56,10 +58,16 @@ public class LoginUI extends ParentFrame{
         mainPanel.add(username);
         mainPanel.add(passwordLabel);
         mainPanel.add(password);
+        incorrect = new JLabel("Incorrect username or password!");
+        mainPanel.add(incorrect);
+        incorrect.setFont(font);
+        incorrect.setVisible(false);
+        
         
         login = new JButton("Log In");
         login.setFont(lfont);
         login.setBorder(BorderFactory.createCompoundBorder(new EmptyBorder(25, 0, 25, 0), new EmptyBorder(0,0,0,0)));
+        login.addActionListener(new LoginListener());
         
         signup = new JButton("Sign Up");
         signup.setFont(lfont);
@@ -74,4 +82,20 @@ public class LoginUI extends ParentFrame{
         this.getContentPane().add(mainPanel, BorderLayout.CENTER);
         this.getRootPane().setDefaultButton(login);
     }
+    
+    private void addIncorrectLabel(){
+        incorrect.setVisible(true);
+    }
+    
+     class LoginListener implements ActionListener{
+        public void actionPerformed(ActionEvent event){
+            boolean auth = parentLoginCntl.requestAuthenticate(username.getText(), password.getPassword());
+            if(auth){
+                System.out.println("authenticated!");
+            }
+            else{
+                addIncorrectLabel();
+            }
+        }
+     }
 }

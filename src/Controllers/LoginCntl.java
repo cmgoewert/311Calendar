@@ -5,6 +5,7 @@
  */
 package Controllers;
 
+import Model.UserList;
 import UserInterface.LoginUI;
 
 /**
@@ -13,8 +14,17 @@ import UserInterface.LoginUI;
  */
 public class LoginCntl {
     LoginUI theLoginUI;
+    UserList theUserList;
     
     public LoginCntl(){
         theLoginUI = new LoginUI(this);
+        if(theUserList == null){
+            theUserList = new UserList();
+        } 
+    }
+    
+    public boolean requestAuthenticate(String usernameToCheck, char[] passwordToCheck){
+        boolean result = theUserList.authenticate(usernameToCheck, passwordToCheck);
+        return result;
     }
 }
