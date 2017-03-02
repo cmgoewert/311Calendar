@@ -92,6 +92,7 @@ public class LoginUI extends ParentFrame{
             boolean auth = parentLoginCntl.requestAuthenticate(username.getText(), password.getPassword());
             if(auth){
                 System.out.println("authenticated!");
+                parentLoginCntl.requestNavCntl();
             }
             else{
                 addIncorrectLabel();

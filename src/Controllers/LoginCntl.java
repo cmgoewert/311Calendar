@@ -13,8 +13,9 @@ import UserInterface.LoginUI;
  * @author cmg5831
  */
 public class LoginCntl {
-    LoginUI theLoginUI;
-    UserList theUserList;
+    private LoginUI theLoginUI;
+    private UserList theUserList;
+    private NavigationCntl theNavigationCntl;
     
     public LoginCntl(){
         theLoginUI = new LoginUI(this);
@@ -26,5 +27,11 @@ public class LoginCntl {
     public boolean requestAuthenticate(String usernameToCheck, char[] passwordToCheck){
         boolean result = theUserList.authenticate(usernameToCheck, passwordToCheck);
         return result;
+    }
+    
+    public void requestNavCntl(){
+        theNavigationCntl = new NavigationCntl();
+        theLoginUI.setVisible(false);
+        
     }
 }
