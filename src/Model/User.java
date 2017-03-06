@@ -12,14 +12,16 @@ package Model;
 public class User {
     private String username;
     private char[] password;
+    private String name;
     
     public User(){
         
     }
     
-    public User(String newUsername, char[] newPassword){
+    public User(String newUsername, char[] newPassword, String newName){
         username = newUsername;
         password = newPassword;
+        name = newName;
     }
 
     public String getUsername() {

@@ -71,6 +71,7 @@ public class LoginUI extends ParentFrame{
         
         signup = new JButton("Sign Up");
         signup.setFont(lfont);
+        signup.addActionListener(new SignUpListener());
         
         navPanel = new JPanel();
         navPanel.setLayout(new GridLayout(1,2,0,0));
@@ -98,5 +99,11 @@ public class LoginUI extends ParentFrame{
                 addIncorrectLabel();
             }
         }
+     }
+     
+     class SignUpListener implements ActionListener{
+         public void actionPerformed(ActionEvent event){
+             parentLoginCntl.requestSignUp();
+         }
      }
 }
