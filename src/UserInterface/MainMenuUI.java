@@ -43,6 +43,7 @@ public class MainMenuUI extends ParentFrame{
         viewContacts = new JButton("View Contacts");
         viewContacts.setFont(font);
         viewContacts.setBorder(BorderFactory.createCompoundBorder(new EmptyBorder(25, 0, 25, 0), new EmptyBorder(0,0,0,0)));
+        viewContacts.addActionListener(new ContactListener());
         
         viewTasks = new JButton("View Tasks");
         viewTasks.setFont(font);
@@ -79,4 +80,10 @@ public class MainMenuUI extends ParentFrame{
             logout();
         }
      }
+    
+    class ContactListener implements ActionListener{
+        public void actionPerformed(ActionEvent event){
+            parentNavigationCntl.requestContactCntl();
+        }
+    }
 }

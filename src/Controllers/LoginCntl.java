@@ -5,6 +5,7 @@
  */
 package Controllers;
 
+import Model.User;
 import Model.UserList;
 import UserInterface.LoginUI;
 import UserInterface.SignUpUI;
@@ -32,12 +33,16 @@ public class LoginCntl {
     }
     
     public void requestNavCntl(){
-        theNavigationCntl = new NavigationCntl();
+        theNavigationCntl = new NavigationCntl(this);
         theLoginUI.setVisible(false);
         
     }
     
     public void requestSignUp(){
         theSignUpUI = new SignUpUI(this);
+    }
+    
+    public void addNewUser(User userToAdd){
+        theUserList.addUser(userToAdd);
     }
 }
