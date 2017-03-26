@@ -48,9 +48,10 @@ public class MainMenuUI extends ParentFrame{
         viewTasks = new JButton("View Tasks");
         viewTasks.setFont(font);
         viewTasks.setBorder(BorderFactory.createCompoundBorder(new EmptyBorder(25, 0, 25, 0), new EmptyBorder(0,0,0,0)));
+        viewTasks.addActionListener(new TaskListener());
         
         logout = new JButton("Logout");
-        logout.setFont(font);
+        logout.setFont(lfont);
         logout.setBorder(BorderFactory.createCompoundBorder(new EmptyBorder(25, 0, 25, 0), new EmptyBorder(0,0,0,0)));
         logout.addActionListener(new LogoutListener());
         
@@ -84,6 +85,12 @@ public class MainMenuUI extends ParentFrame{
     class ContactListener implements ActionListener{
         public void actionPerformed(ActionEvent event){
             parentNavigationCntl.requestContactCntl();
+        }
+    }
+    
+    class TaskListener implements ActionListener{
+        public void actionPerformed(ActionEvent event){
+            parentNavigationCntl.requestTaskCntl();
         }
     }
 }

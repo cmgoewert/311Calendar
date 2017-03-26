@@ -15,6 +15,7 @@ public class NavigationCntl {
     private MainMenuUI theMainMenuUI;
     private LoginCntl parentCntl;
     private ContactsCntl contactCntl;
+    private TaskCntl theTaskCntl;
     
     public NavigationCntl(LoginCntl newLoginCntl){
         theMainMenuUI = new MainMenuUI(this);
@@ -23,6 +24,11 @@ public class NavigationCntl {
     
     public void requestContactCntl(){
         contactCntl = new ContactsCntl(this);
+        theMainMenuUI.setVisible(false);
+    }
+    
+    public void requestTaskCntl(){
+        theTaskCntl = new TaskCntl(this);
         theMainMenuUI.setVisible(false);
     }
     
