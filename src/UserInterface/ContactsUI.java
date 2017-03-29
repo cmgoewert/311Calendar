@@ -34,6 +34,7 @@ public class ContactsUI extends ParentFrame{
     private void initComponents(){
         Font font = new Font(Font.SERIF,0,16);
         Font lfont = new Font(Font.SANS_SERIF, Font.BOLD,18);
+        Font tableFont = new Font(Font.SANS_SERIF,0,18);
         
         backButton = new JButton("Back To Main Menu");
         backButton.setFont(lfont);
@@ -50,6 +51,10 @@ public class ContactsUI extends ParentFrame{
         buttonPanel.add(newContactButton);
         
         theContactsTable = new JTable(this.parentCntl.getTableModel());
+        theContactsTable.setFont(tableFont);
+        theContactsTable.setRowHeight(25);
+        theContactsTable.getTableHeader().setFont(lfont);
+        
 //        theMediaTable.getColumnModel().getColumn(0).setPreferredWidth(3);
 //        theMediaTable.getColumnModel().getColumn(1).setPreferredWidth(100);
 //        theMediaTable.getColumnModel().getColumn(2).setPreferredWidth(80);

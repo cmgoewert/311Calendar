@@ -21,12 +21,6 @@ public class ParentFrame extends JFrame{
         this.setTitle("Task Manager");
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
-        try{
-            imageUrl = new URL("http://www.dailydooh.com/wp-content/uploads/img/calendar-icon.png");
-        }
-        catch(Exception e){
-            
-        }
-        this.setIconImage(new ImageIcon(imageUrl).getImage());
+        this.setIconImage(new ImageIcon("calendar-icon.png").getImage());
     }
 }

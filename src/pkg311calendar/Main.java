@@ -6,7 +6,9 @@
 package pkg311calendar;
 
 import Controllers.LoginCntl;
+import java.awt.Color;
 import javax.swing.UIManager;
+import javax.swing.plaf.ColorUIResource;
 
 /**
  *
@@ -23,6 +25,7 @@ public class Main {
 //          UIManager.setLookAndFeel(
 //              UIManager.getSystemLookAndFeelClassName());
             UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+            //UIManager.put("InternalFrame.activeTitleBackground", new ColorUIResource(Color.black));
         }   
         catch(Exception e){
             
