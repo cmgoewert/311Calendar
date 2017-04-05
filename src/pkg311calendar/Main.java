@@ -6,6 +6,7 @@
 package pkg311calendar;
 
 import Controllers.LoginCntl;
+import Controllers.NavigationCntl;
 import java.awt.Color;
 import javax.swing.UIManager;
 import javax.swing.plaf.ColorUIResource;
@@ -31,6 +32,7 @@ public class Main {
             
         }
         LoginCntl theLoginCntl = new LoginCntl();
+        theLoginCntl.requestNavCntl();
     }
     
 }

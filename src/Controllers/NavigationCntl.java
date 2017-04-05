@@ -5,7 +5,9 @@
  */
 package Controllers;
 
+import Model.Contact;
 import UserInterface.MainMenuUI;
+import java.util.ArrayList;
 
 /**
  *
@@ -23,7 +25,7 @@ public class NavigationCntl {
     }
     
     public void requestContactCntl(){
-        contactCntl = new ContactsCntl(this);
+        contactCntl = new ContactsCntl(this,true);
         theMainMenuUI.setVisible(false);
     }
     
@@ -34,6 +36,13 @@ public class NavigationCntl {
     
     public void requestThisCntl(){
         theMainMenuUI.setVisible(true);
+    }
+    
+    public ArrayList<Contact> requestContactList(){
+        if(contactCntl == null){
+            contactCntl = new ContactsCntl(this,false);
+        }
+        return contactCntl.getContactList();
     }
     
 }

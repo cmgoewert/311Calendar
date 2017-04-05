@@ -16,6 +16,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.TableColumn;
 /**
  *
  * @author Chandler
@@ -26,6 +27,8 @@ public class TasksUI extends ParentFrame{
     private JTable theTasksTable;
     private JPanel buttonPanel,tablePanel;
     private JScrollPane theScrollPane;
+    private JComboBox theUrgencyBox;
+                
     
     public TasksUI(TaskCntl theCntl){
         parentCntl = theCntl;
@@ -55,6 +58,13 @@ public class TasksUI extends ParentFrame{
         theTasksTable.setFont(tableFont);
         theTasksTable.setRowHeight(25);
         theTasksTable.getTableHeader().setFont(lfont);
+        
+        theUrgencyBox = new JComboBox();
+        theUrgencyBox.addItem("Most Urgent");
+        theUrgencyBox.addItem("More Urgent");
+        theUrgencyBox.addItem("Less Urgent");
+        TableColumn sportColumn = theTasksTable.getColumnModel().getColumn(4);
+        sportColumn.setCellEditor(new DefaultCellEditor(theUrgencyBox));
         
         theScrollPane = new JScrollPane(theTasksTable);
         theScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);

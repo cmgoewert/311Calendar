@@ -60,4 +60,8 @@ public class Contact {
         this.relationship = relationship;
     }
     
+    public String toString(){
+        return firstName + " "+ lastName;
+    }
+    
 }

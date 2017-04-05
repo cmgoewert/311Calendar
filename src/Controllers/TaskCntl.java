@@ -5,6 +5,7 @@
  */
 package Controllers;
 
+import Model.Contact;
 import Model.Task;
 import Model.TasksTableModel;
 import UserInterface.ContactsUI;
@@ -63,5 +64,9 @@ public class TaskCntl {
     
     public TasksTableModel getTableModel(){
         return taskTableModel;
+    }
+    
+    public ArrayList<Contact> requestContacts(){
+        return parentCntl.requestContactList();
     }
 }

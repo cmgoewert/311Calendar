@@ -23,7 +23,7 @@ public class ContactsCntl {
     private ArrayList<Contact> theContactList;
     private ContactsTableModel contactTableModel;
     
-    public ContactsCntl(NavigationCntl theCntl){
+    public ContactsCntl(NavigationCntl theCntl, boolean display){
         parentCntl = theCntl;
         
         if(theContactList == null){
@@ -35,7 +35,13 @@ public class ContactsCntl {
         }
         contactTableModel = new ContactsTableModel(theContactList);
         theContactsUI = new ContactsUI(this);
-        theContactsUI.setVisible(true);
+        if(display){
+            
+        }
+        else{
+            theContactsUI.setVisible(false);
+        }
+        
     }
     
     public void requestMainMenu(){
@@ -61,6 +67,10 @@ public class ContactsCntl {
     
     public ContactsTableModel getTableModel(){
         return contactTableModel;
+    }
+    
+    public ArrayList<Contact> getContactList(){
+        return theContactList;
     }
 }
 

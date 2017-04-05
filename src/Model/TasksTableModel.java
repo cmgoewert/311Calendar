@@ -6,7 +6,10 @@
 package Model;
 
 import java.util.ArrayList;
+import javax.swing.JComboBox;
 import javax.swing.table.AbstractTableModel;
+import javax.swing.text.TableView;
+import javax.swing.text.TableView.TableCell;
 
 /**
  *
