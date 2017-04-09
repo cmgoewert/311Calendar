@@ -47,7 +47,13 @@ public class TasksTableModel extends AbstractTableModel {
                 objectToReturn = taskTableData.get(row).getDescription();
                 break;
             case 2:
-                objectToReturn = taskTableData.get(row).getDueDate().toString();
+                try{
+                    objectToReturn = taskTableData.get(row).getDueDate().toString();
+                }
+                catch(Exception e){
+                    objectToReturn = taskTableData.get(row).getDateString();
+                }
+                
                 break;
             case 3:
                 try{

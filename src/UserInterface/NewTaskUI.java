@@ -7,6 +7,7 @@ package UserInterface;
 
 import Controllers.TaskCntl;
 import Model.Contact;
+import Model.Task;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -15,7 +16,9 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -150,15 +153,28 @@ public class NewTaskUI extends ParentFrame{
         this.getRootPane().setDefaultButton(save);
     }
     
-     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt){ 
+     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt){
+        ArrayList<Contact> contactList = parentCntl.requestContacts();
+        Contact newContact = null;
+        for(int i = 0; i < contactList.size();i++){
+            if(contactList.get(i).toString() == collabBox.getSelectedItem().toString()){
+                newContact = contactList.get(i);
+            }
+        }
         
+        Task taskToAdd = new Task(titleField.getText(),descField.getText(),newSpin.getValue().toString(),newContact, urgencyField.getSelectedIndex());
+        parentCntl.addNewTask(taskToAdd);
         this.parentCntl.getTableModel().fireTableDataChanged();
     }
     
     class CancelListener implements ActionListener{
         public void actionPerformed(ActionEvent event){
-            
+            setInvisible();
         }
+    }
+    
+    private void setInvisible(){
+        this.setVisible(false);
     }
     
     class ComboBoxRenderer extends JLabel implements ListCellRenderer {

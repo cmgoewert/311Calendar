@@ -15,6 +15,7 @@ public class Task {
     private String title;
     private String description;
     private LocalDateTime dueDate;
+    private String date;
     private Contact collaborator;
     private int urgency;
     
@@ -22,6 +23,14 @@ public class Task {
         title = theTitle;
         description = theDescrip;
         dueDate = theDueDate;
+        collaborator = theCollaborator;
+        urgency = theUrgency;
+    }
+    
+    public Task(String theTitle, String theDescrip, String theDueDate,Contact theCollaborator, int theUrgency){
+        title = theTitle;
+        description = theDescrip;
+        date = theDueDate;
         collaborator = theCollaborator;
         urgency = theUrgency;
     }
@@ -52,6 +61,10 @@ public class Task {
 
     public LocalDateTime getDueDate() {
         return dueDate;
+    }
+    
+    public String getDateString(){
+        return date;
     }
 
     public void setDueDate(LocalDateTime dueDate) {
