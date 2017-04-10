@@ -21,6 +21,7 @@ public class NavigationCntl {
     
     public NavigationCntl(LoginCntl newLoginCntl){
         theMainMenuUI = new MainMenuUI(this);
+        theMainMenuUI.setVisible(true);
         parentCntl = newLoginCntl;
     }
     

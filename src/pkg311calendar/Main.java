@@ -32,7 +32,12 @@ public class Main {
             
         }
         LoginCntl theLoginCntl = new LoginCntl();
-        theLoginCntl.requestNavCntl();
+        char[] password = {'t','e','s','t'};
+        boolean auth = theLoginCntl.requestAuthenticate("TestUser1", password);
+        if(auth){
+            theLoginCntl.requestNavCntl();
+        }
+        
     }
     
 }
