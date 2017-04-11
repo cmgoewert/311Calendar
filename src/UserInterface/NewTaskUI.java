@@ -179,7 +179,7 @@ public class NewTaskUI extends ParentFrame{
         ArrayList<Contact> contactList = parentCntl.requestContacts();
         Contact newContact = null;
         for (int i = 0; i < contactList.size(); i++) {
-            if (contactList.get(i).toString() == collabBox.getSelectedItem().toString()) {
+            if (contactList.get(i).toString().equals(collabBox.getSelectedItem().toString())) {
                 newContact = contactList.get(i);
             }
         }
