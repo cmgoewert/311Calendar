@@ -42,6 +42,9 @@ public class ContactsCntl {
             theContactsUI.setVisible(false);
         }
         
+        CsvExporter export = new CsvExporter();
+        export.writeToCSV(theContactList);
+        
     }
     
     public void requestMainMenu(){
